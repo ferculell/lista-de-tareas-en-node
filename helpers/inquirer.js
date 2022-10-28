@@ -93,6 +93,10 @@ const listaBorrar = async (tareas) => {
             name: `${num} ${tarea.desc}`
         }
     });
+    choices.unshift({
+        value: '0',
+        name: `${'0.'.green} ${'Cancelr'.gray}`
+    });
 
     const preguntas = [
         {
