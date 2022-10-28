@@ -36,7 +36,7 @@ export default class Tareas {
             const completadas = this.listadoArr.filter(item => item.completadoEn);
             completadas.forEach((tarea, i) => {
                 const num = `${i + 1}.`;
-                console.log(`${num.green} ${tarea.desc} :: ${'Completada'.green}`);
+                console.log(`${num.green} ${tarea.desc} :: ${'Completada'.green} en ${tarea.completadoEn.green}`);
             });
         } else {
             const pendientes = this.listadoArr.filter(item => item.completadoEn == null);
@@ -45,6 +45,21 @@ export default class Tareas {
                 console.log(`${num.green} ${tarea.desc} :: ${'Pendiente'.red}`);
             });
         }
+    }
+
+    toggleCompletadas (ids) {
+        ids.forEach( id => {
+            const tarea = this._listado[id];
+            if (!tarea.completadoEn) {
+                tarea.completadoEn = new Date().toLocaleString();
+            }
+        });
+
+        this.listadoArr.forEach( tarea => {
+            if (!ids.includes(tarea.id)) {
+                this._listado[tarea.id].completadoEn = null;
+            }
+        });
     }
 
     borrarTarea (id) {

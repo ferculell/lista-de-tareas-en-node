@@ -1,6 +1,6 @@
 import colors from 'colors';
 
-import { inquirerMenu, pausar, leerInput, listaBorrar, confirmar } from './helpers/inquirer.js';
+import { inquirerMenu, pausar, leerInput, listaBorrar, confirmar, mostrarChecklist } from './helpers/inquirer.js';
 import { guardarDB, leerDB } from './helpers/manejarDB.js';
 import Tareas from './models/tareas.js';
 
@@ -40,7 +40,8 @@ const main = async () => {
                 break;
 
             case '5':
-                
+                const ids = await mostrarChecklist(tareas.listadoArr);
+                tareas.toggleCompletadas(ids);
                 break;
 
             case '6':
