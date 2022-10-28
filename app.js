@@ -11,12 +11,12 @@ const main = async () => {
     const tareasDB = leerDB();
     let opt = '';
 
-    //await pausar();
-
     if (tareasDB) {
-        // TO DO
+        tareas.crearTareasDesdeDB(tareasDB);
     }
     
+    //await pausar();
+
     do {
 
         opt = await inquirerMenu();
@@ -28,7 +28,7 @@ const main = async () => {
                 break;
             
             case '2':
-                console.log(tareas.listadoArr);
+                tareas.verListado();
                 break;
 
             case '3':
@@ -51,7 +51,7 @@ const main = async () => {
                 break;
         }
 
-        //guardarDB(tareas.listadoArr);
+        guardarDB(tareas.listadoArr);
 
         if (opt !== '0') {
             await pausar();

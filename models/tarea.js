@@ -1,9 +1,9 @@
 import { v4 } from 'uuid';
 
 export default class Tarea {
-    constructor (desc) {
-        this.id = v4();
+    constructor (desc, id = null, completadoEn = null) {
         this.desc = desc;
-        this.completadoEn = null;
+        this.id = id || v4();
+        this.completadoEn = completadoEn;
     }
 }
