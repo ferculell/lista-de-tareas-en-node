@@ -1,6 +1,6 @@
 import colors from 'colors';
 
-import { inquirerMenu, pausar, leerInput } from './helpers/inquirer.js';
+import { inquirerMenu, pausar, leerInput, listaBorrar, confirmar } from './helpers/inquirer.js';
 import { guardarDB, leerDB } from './helpers/manejarDB.js';
 import Tareas from './models/tareas.js';
 
@@ -44,7 +44,13 @@ const main = async () => {
                 break;
 
             case '6':
+                const id = await listaBorrar(tareas.listadoArr);
+                const ok = await confirmar('¿Seguro que desea borrar la tarea seleccionada?');
                 
+                if (ok) {
+                    tareas.borrarTarea(id);
+                    console.log('\nTarea borrada');
+                }
                 break;
         
             default:
