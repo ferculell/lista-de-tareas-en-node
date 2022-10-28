@@ -32,11 +32,11 @@ const main = async () => {
                 break;
 
             case '3':
-                
+                tareas.filtrarPorCompletada();
                 break;
 
             case '4':
-                
+                tareas.filtrarPorCompletada(false);
                 break;
 
             case '5':

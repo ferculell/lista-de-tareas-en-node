@@ -30,4 +30,20 @@ export default class Tareas {
             console.log(`${num.green} ${tarea.desc} :: ${tarea.completadoEn ? 'Completada'.green : 'Pendiente'.red}`);
         });
     }
+
+    filtrarPorCompletada (completada = true) {
+        if (completada) {
+            const completadas = this.listadoArr.filter(item => item.completadoEn);
+            completadas.forEach((tarea, i) => {
+                const num = `${i + 1}.`;
+                console.log(`${num.green} ${tarea.desc} :: ${'Completada'.green}`);
+            });
+        } else {
+            const pendientes = this.listadoArr.filter(item => item.completadoEn == null);
+            pendientes.forEach((tarea, i) => {
+                const num = `${i + 1}.`;
+                console.log(`${num.green} ${tarea.desc} :: ${'Pendiente'.red}`);
+            });
+        }
+    }
 }
