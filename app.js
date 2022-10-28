@@ -14,8 +14,6 @@ const main = async () => {
     if (tareasDB) {
         tareas.crearTareasDesdeDB(tareasDB);
     }
-    
-    //await pausar();
 
     do {
 
@@ -57,6 +55,7 @@ const main = async () => {
                 break;
         
             default:
+                console.log('Algún error no previsto ha ocurrido');
                 break;
         }
 
